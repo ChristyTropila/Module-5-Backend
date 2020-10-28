@@ -9,6 +9,12 @@ class ListingsController < ApplicationController
         @listing=Listing.create!(user_id: params[:user_id], lat: params[:lat], lng: params[:lng], available: params[:available])
         render json: @listing
     end
+
+    def update
+        @listing=Listing.find(params[:id])
+        @listing.update(available: false)
+        render json: @listing
+    end
 end
 
 private

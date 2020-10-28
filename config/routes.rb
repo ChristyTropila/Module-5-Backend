@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/listings', to: 'listings#index'
   post '/listings', to: 'listings#create'
+  patch '/listings/:id', to: 'listings#update'
 
   get '/reservations', to: 'reservations#index'
   post '/reservations', to: 'reservations#create'
