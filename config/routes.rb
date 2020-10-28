@@ -6,5 +6,8 @@ Rails.application.routes.draw do
 
   get '/listings', to: 'listings#index'
   post '/listings', to: 'listings#create'
+
+  get '/reservations', to: 'reservations#index'
+  post '/reservations', to: 'reservations#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
