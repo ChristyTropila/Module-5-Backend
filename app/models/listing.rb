@@ -5,6 +5,9 @@ class Listing < ApplicationRecord
     has_many :reviews
     has_many :users, through: :reviews
 
+    geocoded_by :address
+    after_validation :geocode
+
 
 
     

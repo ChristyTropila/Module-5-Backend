@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :reservations
 
-  resources :users
 
   get '/listings', to: 'listings#index'
   post '/listings', to: 'listings#create'
@@ -11,6 +8,8 @@ Rails.application.routes.draw do
   get '/reservations', to: 'reservations#index'
   post '/reservations', to: 'reservations#create'
 
+  get '/users', to: 'users#index'
   post '/users', to: 'users#create'
+  post '/users/login', to: 'users#login'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

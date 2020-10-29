@@ -27,6 +27,7 @@ gem 'rack-cors'
 gem 'activerecord-reset-pk-sequence'
 gem 'active_model_serializers'
 gem "jwt", "~> 2.1"
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

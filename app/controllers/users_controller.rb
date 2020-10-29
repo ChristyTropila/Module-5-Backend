@@ -13,13 +13,24 @@ class UsersController < ApplicationController
         else
             render json: {error: "USERNAME IS TAKEN! TRY AGAIN"}, status: 422
     end
-end
+ end
+
+    def login
+       
+    @user=User.find_by(email: params[:email], password: params[:password])
+        if @user
+            render json: @user
+        else
+            render json: {error: "INCORRECT USERNAME OR PASSWORD"},status: 422
+        end
+    
+    end
 
 private
 
-def user_params
-    params.permit(:name, :email, :password, :age, :contact)
-end
+    def user_params
+        params.permit(:name, :email, :password, :age, :contact)
+    end
 
 
 end
