@@ -21,10 +21,22 @@ class ListingsController < ApplicationController
     
 
     def update
+        byebug
         @listing=Listing.find(params[:id])
-        @listing.update(available: false)
+        @listing.update(available: !@listing.available)
+        byebug
         render json: @listing
     end
+
+
+  def destroy
+    @listing=Listing.find(params[:id])
+    @listing.destroy
+    render json: @listing
+  end
+  
+
+
 end
 
 private
