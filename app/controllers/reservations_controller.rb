@@ -5,6 +5,10 @@ def index
     render json: @reservations
 end
 
+def show
+
+end
+
 
 
 def create
@@ -16,6 +20,17 @@ def create
 
       end
 end
+
+    def destroy
+      @reservation=Reservation.find(params[:id])
+      @listing=Listing.all.find(@reservation.listing_id)
+      @user=User.all.find(@reservation.user_id)
+      @listing.update(available: true)
+      @reservation.destroy
+      render json: @reservation
+    end
+
+
 
 private
 
