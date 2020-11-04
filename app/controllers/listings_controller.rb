@@ -1,12 +1,14 @@
 class ListingsController < ApplicationController
 
+    before_action :authorized, only: [:create, :destroy, :update]
+
     def index
         @listings=Listing.all
         render json: @listings
     end
 
     def create
-     @listing=Listing.create!(user_id: params[:user_id], lat: params[:lat], lng: params[:lng], available: params[:available])
+     @listing=Listing.create!(user_id: params[:user_id], lat: params[:lat], lng: params[:lng], available: params[:available], address: params[:address])
      if @listing.valid?
          render json: @listing
       else

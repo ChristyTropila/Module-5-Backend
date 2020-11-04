@@ -5,8 +5,8 @@ class Listing < ApplicationRecord
     has_many :reviews
     has_many :users, through: :reviews
 
-    geocoded_by :address
-    after_validation :geocode
+    # geocoded_by :address
+    # after_validation :geocode
 
      def getNameForReserv
        getUser=self.reservations.map do |reserv|

@@ -1,15 +1,11 @@
 class ReservationsController < ApplicationController
+  before_action :authorized, only: [:create, :destroy, :update]
+
 
 def index
     @reservations=Reservation.all
     render json: @reservations
 end
-
-def show
-
-end
-
-
 
 def create
     @reservation=Reservation.create!(user_id: params[:user_id], listing_id: params[:listing_id], booking_time: params[:booking_time])
