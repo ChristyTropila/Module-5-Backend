@@ -19,3 +19,7 @@ Review.reset_pk_sequence
 
 
 
+christy=User.create(name:"christy", email: "test@gmail.com", password: "123", age: 34, contact: "39393939")
+joby=User.create(name:"joby", email: "test@gmail.com", password: "123", age: 34, contact: "39393939")
+
+message1=Message.create(conversation_id: 1, content: "helloooooo", user_id: christy.id)

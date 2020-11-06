@@ -36,7 +36,6 @@ class UsersController < ApplicationController
     end
 
     def keep_logged_in
-        byebug
         @token=encode_token({user_id: @user.id})
         render json:{
             user: UserSerializer.new(@user),

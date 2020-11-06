@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :conversations
+  resources :messages
+  mount ActionCable.server => '/cable'
+
+  get '/messages', to: 'messages#index'
+  post '/messages', to: 'messages#create'
+
+  post '/conversations', to: 'conversations#create'
+  get '/conversations', to: 'conversations#index'
+  get '/conversations/:id', to: 'conversations#show'
 
   get '/listings', to: 'listings#index'
   post '/listings', to: 'listings#create'
