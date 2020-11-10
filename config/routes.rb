@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :conversations
+
   resources :messages
   mount ActionCable.server => '/cable'
 
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   post '/users', to: 'users#create'
   post '/users/login', to: 'users#login'
+  patch '/users/:id', to: 'users#update'
  
 
   get '/reviews', to: 'reviews#index'

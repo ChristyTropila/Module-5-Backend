@@ -43,6 +43,14 @@ class UsersController < ApplicationController
         }
     end
 
+    def update
+        @user=User.find(params[:id])
+        @user.update(name: params[:name], email: params[:email], contact: params[:contact])
+        render json: @user
+    end
+
+
+
 private
 
     def user_params
