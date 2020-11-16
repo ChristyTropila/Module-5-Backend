@@ -16,11 +16,10 @@ class UsersController < ApplicationController
     def create
         @user=User.create!(user_params)
         if @user.valid?
-        #   session[:user_id]=@user.id
             wristband= encode_token(user_id: @user.id)
             render json: {user: UserSerializer.new(@user), token: wristband}
         else
-            render json: {error: "USERNAME IS TAKEN! TRY AGAIN"}, status: :not_acceptable
+            render json: {error: "EMAIL IS TAKEN! TRY AGAIN"}
     end
  end
 

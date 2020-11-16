@@ -11,11 +11,17 @@ User.destroy_all
 Listing.destroy_all
 Reservation.destroy_all
 Review.destroy_all
+Conversation.destroy_all
+Message.destroy_all
 
 User.reset_pk_sequence
 Listing.reset_pk_sequence
 Reservation.reset_pk_sequence
 Review.reset_pk_sequence
+Message.reset_pk_sequence
+Conversation.reset_pk_sequence
+
+
 
 
 

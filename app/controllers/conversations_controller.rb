@@ -23,10 +23,10 @@ class ConversationsController < ApplicationController
           render json: @convo2
           ActionCable.server.broadcast 'room_channel', ConversationSerializer.new(@convo2)
         else
-        @conversation=Conversation.create!(sender_id: params[:sender_id], receiver_id: params[:receiver_id])
-        render json: @conversation
+          @conversation=Conversation.create!(sender_id: params[:sender_id], receiver_id: params[:receiver_id])
+          render json: @conversation
         
-        ActionCable.server.broadcast 'room_channel', ConversationSerializer.new(@conversation)
+          ActionCable.server.broadcast 'room_channel', ConversationSerializer.new(@conversation)
         end
     end
 
