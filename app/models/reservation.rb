@@ -5,4 +5,9 @@ class Reservation < ApplicationRecord
     def displayUser
         return self.user
     end
+
+
+    def getListingInfo
+        return self.listing
+    end
 end
